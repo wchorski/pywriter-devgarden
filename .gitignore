@@ -2,8 +2,8 @@
 
 
 
-vaultOriginal/README.md
-vaultClean/*
+vaultOriginal/*
+!vaultOriginal/README.md
 !vaultClean/README.md
 tmp
 

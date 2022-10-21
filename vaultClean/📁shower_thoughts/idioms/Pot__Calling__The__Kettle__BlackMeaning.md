@@ -1,0 +1,4 @@
+> [!quote] https://knowyourphrase.com/pot-calling-the-kettle-black#:~:text=The__expression__the__pot__calling__the__kettle__black,is__also__guilty__of__doing__the__same__thing.
+>  idiomatic phrase that people sometimes use to point out hypocrisy. It means that someone is criticizing another person for a fault they have even though the criticizer is also guilty of doing the same thing.
+
+> When a cast-iron pot (or kettle) is held over a fire, the bottom eventually darkens. Why? Because the flame the pot is being held over causes soot, a black powdery substance, to accumulate under the pot. With enough time, the bottom of the pot can turn black.
