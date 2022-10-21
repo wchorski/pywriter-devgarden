@@ -1,0 +1,59 @@
+import styled from 'styled-components'
+
+
+export const StyledMarkdownContent = styled.section`
+
+  max-width: 1200px;
+
+  h2:before {
+    content: "# ";
+    width:20px;
+    height:20px;
+    /* background:red; */
+    color: #ffffff59;
+    display: block;
+    float: left;
+    margin-right: 5px;
+  } 
+  h3:before {
+    content: "## ";
+    width:20px;
+    height:20px;
+    /* background:red; */
+    color: #ffffff59;
+    display: block;
+    float: left;
+    margin-right: 5px;
+  } 
+  h4:before {
+    content: "### ";
+    width:20px;
+    height:20px;
+    /* background:red; */
+    color: #ffffff59;
+    display: block;
+    float: left;
+    margin-right: 5px;
+  } 
+
+  .active{
+    color: #f3d09f;
+    text-decoration: dotted underline 1px;
+    filter: drop-shadow(8px 1px 7px #767a44);
+  }
+
+  .codeblock-cont{
+    position: relative;
+    box-shadow: #0000004a 0px 0px 8px 1px;
+  
+    .code-language{
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 5px 10px;
+      background-color: var(--c-2);
+      border-radius: 0px 5px 0px 5px;
+    }
+  }
+
+`
