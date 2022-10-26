@@ -72,7 +72,7 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
 
   const LinkRenderer = ({href, children}) => {
 
-    console.log(href);
+    // console.log(href);
     if(!children) return <strike>broken link</strike>
 
     const trueLink = ((/^http/).test(href))
@@ -142,15 +142,18 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
               <hr className='title-bottom-line'/>
 
               <div className='frontmatter'>
+
                 <BreadCrumb slug={slug}/><br/>
+
                 {frontmatter.title && (<>
                   <small>date: {frontmatter.date?.toString()}</small> <br/>
                   <small>desc: {frontmatter.description}</small> <br/>
                 </>)}
               </div>
-
+              
               <StyledMarkdownContent className='content-cont'>
                 <ReactMarkdown 
+                  // eslint-disable-next-line 
                   children={markdown} 
                   remarkPlugins={[remarkGfm, remarkFrontmatter]} 
                   components={components}

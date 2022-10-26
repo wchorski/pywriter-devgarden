@@ -6,7 +6,6 @@ import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import { NavSidebar } from "components/NavSidebar";
 
-
 const Home: NextPage = () => {
 
 
