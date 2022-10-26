@@ -152,12 +152,9 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
               </div>
               
               <StyledMarkdownContent className='content-cont'>
-                <ReactMarkdown 
-                  // eslint-disable-next-line 
-                  children={markdown} 
-                  remarkPlugins={[remarkGfm, remarkFrontmatter]} 
-                  components={components}
-                />
+                
+                // eslint-disable-next-line 
+                <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm, remarkFrontmatter]} components={components}/>
               </StyledMarkdownContent>
 
             </div>
