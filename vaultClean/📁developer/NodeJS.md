@@ -1,6 +1,6 @@
 ## Tips & Tricks
 
-### does the path lead to a file or directory? - [source](/vault/https://stackoverflow.com/a/15630832/15579591)
+### does the path lead to a file or directory? - [source](https://stackoverflow.com/a/15630832/15579591)
 ```js
 if(fs.existsSync(srcPath) && fs.lstatSync(srcPath).isDirectory()){
 	// returns true if path leads to DIRECTORY
@@ -10,7 +10,7 @@ if(fs.existsSync(srcPath) && fs.lstatSync(srcPath).isDirectory()){
 }
 ```
 
-### get app root directory consistently - [source](/vault/https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/)
+### get app root directory consistently - [source](https://flaviocopes.com/fix-dirname-not-defined-es-module-scope/)
 `root-path.mjs` -> put this file in the root of your project
 ```js
 import * as path from 'path'
@@ -22,7 +22,7 @@ const __dirname = path.dirname(__filename);
 export const __rootDir = __dirname //import this to use in any file
 ```
 ### Copy / Clone directory and files
-- [source - KyleMit](/vault/https://stackoverflow.com/a/64255382/15579591)
+- [source - KyleMit](https://stackoverflow.com/a/64255382/15579591)
 ```javascript
 const { promises: fs } = require("fs")
 const path = require("path")
@@ -42,7 +42,7 @@ async function copyDir(src, dest) {
 }
 ```
 
-- [source - Anders](/vault/https://stackoverflow.com/a/68552726/15579591)
+- [source - Anders](https://stackoverflow.com/a/68552726/15579591)
 ```typescript
 import { promises as fs } from "fs"
 import path from "path"
@@ -66,7 +66,7 @@ export const copyDirectory = async (src: string, dest: string) => {
 ```
 
 ### Error: Import statment outside module, typscript babel
-[javascript - SyntaxError: Cannot use import statement outside a module - Stack Overflow](/vault/https://stackoverflow.com/questions/58384179/syntaxerror-cannot-use-import-statement-outside-a-module)
+[javascript - SyntaxError: Cannot use import statement outside a module - Stack Overflow](https://stackoverflow.com/questions/58384179/syntaxerror-cannot-use-import-statement-outside-a-module)
 
 ### Recursivley read file paths in directory & return array of strings 
 https://stackoverflow.com/a/45130990/15579591
@@ -94,7 +94,7 @@ async function getFiles(dir) {
 ```
 
 ### run a javascript (js) module via command line
-being able to to run any `js` file via a terminal inside of your [ReactJS](/vault/%F0%9F%93%81developer/Home__Lab__%F0%9F%8F%A0/ReactJS.md) app seems simple, but requires special file naming
+being able to to run any `js` file via a terminal inside of your [ReactJS](📁developer/Home%20Lab%20🏠/ReactJS.md) app seems simple, but requires special file naming
 
 `serverScript.mjs` --> *notice the `.mjs` as we'll need that for the import*
 ```js
