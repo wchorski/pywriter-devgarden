@@ -18,7 +18,7 @@ import Link from 'next/link';
 import { AiFillFolderOpen } from "react-icons/ai";
 import { TbMarkdown } from "react-icons/tb";
 // import Link from "next/link";
-// import { useState, useEffect } from "react"; 
+import { useState, useEffect } from "react"; 
 import { Layout_Markdown } from "components/Layouts";
 import { TableOfContents } from 'components/TableOfContents';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
@@ -31,7 +31,7 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
 
   // const {title, date, desc, description} = frontmatter
 
-  // const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   const HeadingRenderer = ({ level, children }) => {
 
@@ -117,6 +117,18 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
   // TODO don't need this is not initially cleaning vault
   const cleanTitle = fileTitle.replaceAll('_.', ' ')
 
+
+  useEffect(() => {
+
+
+    setIsLoading(false)
+  
+    return () => {
+      console.log('markdown loaded'); 
+    }
+  }, [])
+  
+
   return (
     <>
       <Head>
@@ -165,7 +177,12 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
             </div>
 
             <aside >
-              <TableOfContents />
+              {!isLoading && (
+                <TableOfContents />
+              )}
+              {isLoading && (
+                <p>LOADING...</p>
+              )}
             </aside>
           </div>
           )}
