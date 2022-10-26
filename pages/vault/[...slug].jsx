@@ -126,7 +126,7 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
     return () => {
       console.log('markdown loaded'); 
     }
-  }, [])
+  }, [slug])
   
 
   return (
