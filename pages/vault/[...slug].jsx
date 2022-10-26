@@ -97,6 +97,7 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
         <div className="codeblock-cont">
           <span className='code-language'>{match[1]}</span>
           <SyntaxHighlighter
+            // eslint-disable-next-line
             children={String(children).replace(/\n$/, '')}
             style={syntaxStyle}
             language={match[1]}
@@ -153,8 +154,12 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
               
               <StyledMarkdownContent className='content-cont'>
                 
-                // eslint-disable-next-line 
-                <ReactMarkdown children={markdown} remarkPlugins={[remarkGfm, remarkFrontmatter]} components={components}/>
+                <ReactMarkdown 
+                  // eslint-disable-next-line 
+                  children={markdown} 
+                  remarkPlugins={[remarkGfm, remarkFrontmatter]} 
+                  components={components}
+                />
               </StyledMarkdownContent>
 
             </div>
