@@ -124,7 +124,7 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
     setIsLoading(false)
   
     return () => {
-      console.log('markdown loaded'); 
+      
     }
   }, [slug])
   
@@ -178,7 +178,7 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
 
             <aside >
               {!isLoading && (
-                <TableOfContents />
+                <TableOfContents key={slug}/>
               )}
               {isLoading && (
                 <p>LOADING...</p>
