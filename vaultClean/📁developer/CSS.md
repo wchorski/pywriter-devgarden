@@ -1,3 +1,57 @@
+### if parent has input that is checked
+in a todo list, I wanted to cross out or strikethrough all children if the input was checked
+```html
+<li class="task-list-item">
+	<input type="checkbox" disabled checked>
+	front page with growing sprout garden. flowers are clickable graph view?
+</li>
+```
+
+```css
+li.task-list-item:has(input:checked){
+
+  opacity: .6;
+  text-decoration:line-through;
+}
+```
+
+### Centered header label with horizontal line on sides
+[helpful tutorial (iqcode.com)](https://iqcode.com/code/css/css-technique-for-a-horizontal-line-with-icons-in-the-middle#:~:text=CSS%20technique%20for%20a%20horizontal%20line%20with%20icons,line-through%3B%20%7D%20View%20another%20examples%20Add%20Own%20solution)
+check out the `graph ` and  `Table of Contents` labels in this screenshot 
+
+![](_attachments/Pasted%20image%2020221109140342.png)
+with the power of `:before` & `:after` you too can make this stylish "strike through" effect
+
+```scss
+p.icon-label{
+    color: #5e5e5e;
+    font-size: 1rem;
+    overflow: hidden;
+    text-align: center;
+
+    &:before,
+    &:after {
+      background-color: #5e5e5e;
+      content: "-";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%;
+    }  
+
+    &:before {
+      right: 0.5em;
+      margin-left: -50%;
+    }
+
+    &:after {
+      left: 0.5em;
+      margin-right: -50%;
+    }
+  }
+```
+
 ### disable interaction and or click through element
 very useful when hiding a top layer UI element with opacity = 0 
 

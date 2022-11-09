@@ -11,7 +11,7 @@ Why do I use this for movies when I have [Jellyfin](📁developer/Home%20Lab%20�
 1. - the repo we'll be using -> [plexinc/pms-docker: Plex Media Server Docker repo, for all your PMS docker needs. (github.com)](github.com))
 2. get token from [Claim | Plex](https://www.plex.tv/claim/)
 3. [Docker](📁developer/Home%20Lab%20🏠/Docker.md) `./compose.yml`
-```
+```yml
 version: '2'
 services:
   plex:

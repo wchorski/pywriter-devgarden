@@ -1,6 +1,20 @@
 Here are my little tidbits and rants about my love hate relationship with **JS** 
 
-## Es6
+##  Es6 - *well mostly*
+
+### check if element contains class
+[Check if an Element Contains a Class in JavaScript (javascripttutorial.net)](https://www.javascripttutorial.net/dom/css/check-if-an-element-contains-a-class/#:~:text=Check%20If%20an%20Element%20contains%20a%20Class%20To,the%20classList%20property%20of%20the%20element%3A%20element.classList.contains%20%28className%29%3B)
+```html
+<div class="secondary info">Item</div>
+```
+
+```js
+const div = document.querySelector('div'); 
+div.classList.contains('secondary'); // returns true
+
+const div = document.querySelector('div'); 
+div.classList.contains('error'); // returns false
+```
 
 ### get attribute on event target
 ```js

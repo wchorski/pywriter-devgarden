@@ -8,8 +8,10 @@ codename: **Obsidian Pywrite**
 [react-syntax-highlighter/AVAILABLE_STYLES_PRISM.MD at master · react-syntax-highlighter/react-syntax-highlighter (github.com)](github.com)))
 
 #todo 
+- [ ] ==FEATURE== put .md files in a 'data-base' that's fetched by nextjs. create .env variable that points to location.
 - [x] ==BUG== = Headers with same name breaks **Table of Contents** (i.e. Dark Room White Tunnel.md)
 	- [x] if headername exists? increment a key number onto next one. Can fix with Math.Random() but Should force user to make unique header names
+- [x] ==BUG== search query disappears before able to click on link
 - [x] ==BUG== -> on build, `Table of Contents` does not update when parent `[..slug].jsx` changes
 - [x] ==BUG== -> `tableofcontents.jsx` incorrectly nests some headers (i believe it's when lilttle content is below a header)
 - [x] ==BUG== = External links get app route appended to it
@@ -22,7 +24,8 @@ codename: **Obsidian Pywrite**
 	- [x] fix "not array null" by skipping if not array
 - [ ] ==style== : mask on top above header bg color so it looks like rocky yellow rocks coming out of bottom border
 - [x] ==style== : fade out scrollbar after time. reveal  while scrolling or hover
-- [ ] ==style== : cross out on checked boxes `task-list-item` 
+- [ ] ==style== html highlight text inside "==text==" [How to Highlight text in Html - javatpoint](https://www.javatpoint.com/how-to-highlight-text-in-html#:~:text=1%20Step%201%3A%20Firstly%2C%20we%20have%20to%20type,which%20we%20want%20to%20highlight.%20...%20More%20items) 
+- [x] ==style== : cross out on checked boxes `task-list-item` 
 - [x] ==feature== - clickable slug breadcrumbs for easy backwards navigation
 - [x] ==feature== - searchable field, use Fuse.js
 - [ ] ==feature== - mermaid integration
@@ -38,6 +41,7 @@ codename: **Obsidian Pywrite**
 	- [x] clickable nodes take to page
 	- [x] hover, highlight friend nodes too
 	- [x] zoom pan canvas 
+	- [x] make sticky with **ABOVE** table of contents
 	- [ ] full screen graph
 	- [ ] try building with Pixi.js
 - [x] ==feature== site search

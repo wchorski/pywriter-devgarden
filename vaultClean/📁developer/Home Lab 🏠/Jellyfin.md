@@ -13,8 +13,7 @@ I use this exclusively for music hosting because [Plex.tv](📁developer/Home%20
 - Android Phone (Galaxy s9)
 
 ## installation
-### [Docker](📁developer/Home%20Lab%20🏠/Docker.md)
-1. `./compose.yml`
+1. `./compose.yml` via [Docker](📁developer/Home%20Lab%20🏠/Docker.md)
 ```yaml
 version: "3.7"
 
