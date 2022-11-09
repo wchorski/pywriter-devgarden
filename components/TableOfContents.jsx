@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from 'react'
-import {RiFileSearchLine} from 'react-icons/ri'
 import { StyledTableOfContents } from '../styles/TableOfContents.styled'
 
 const useHeadingsData = () => {
@@ -13,6 +12,7 @@ const useHeadingsData = () => {
     const newNestedHeadings = getNestedHeadings(headingElements);
     setNestedHeadings(newNestedHeadings);
   }, []);
+
 
   return { nestedHeadings };
 };
@@ -38,7 +38,7 @@ const getNestedHeadings = (headingElements) => {
 
 const toggleHeadingActive = () => {
   const allHeadings = document.querySelectorAll('h2, h3, h4, h5, h6')
-  console.log(allHeadings);
+  // console.log(allHeadings);
   allHeadings.forEach(element => {
     element.classList.remove('active')
   });
@@ -53,9 +53,9 @@ const Headings = ({ headings, activeId  }) => (
           onClick={(e) => {
             e.preventDefault();
             const headID = document.querySelector(`#${heading.id}`)
-            headID.scrollIntoView({behavior: "smooth"});
+            headID.scrollIntoView({behavior: "smooth"})
             toggleHeadingActive()
-            headID.classList.toggle('active');
+            headID.classList.toggle('active')
           }}
         >
           {heading.title}
@@ -67,11 +67,11 @@ const Headings = ({ headings, activeId  }) => (
                 <a 
                   href={`${child.id}`}
                   onClick={(e) => {
-                    e.preventDefault();
+                    e.preventDefault()
                     const headID = document.querySelector(`#${child.id}`)
-                    headID.scrollIntoView({behavior: "smooth"});
+                    headID.scrollIntoView({behavior: "smooth"})
                     toggleHeadingActive()
-                    headID.classList.toggle('active');
+                    headID.classList.toggle('active')
                   }}
                 >
                   {child.title}
@@ -128,6 +128,7 @@ const useIntersectionObserver = (setActiveId) => {
 };
 
 export const TableOfContents = () => {
+
   const [activeId, setActiveId] = useState();
   const { nestedHeadings } = useHeadingsData();
   useIntersectionObserver(setActiveId);
@@ -140,12 +141,7 @@ export const TableOfContents = () => {
           <Headings headings={nestedHeadings} activeId={activeId}/>
         </nav>
       <hr />
-      <div className="searchbar-cont">
-        <button aria-label='search button'>
-          <RiFileSearchLine />
-        </button>
-        <input type="search" placeholder='[ / ] to search'/>
-      </div>
+
       <div className="tags-cont">
         <h5>tags</h5>
         <a href="#" className='tag'>#tagOne</a>

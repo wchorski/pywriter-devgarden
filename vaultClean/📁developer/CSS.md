@@ -1,3 +1,25 @@
+### disable interaction and or click through element
+very useful when hiding a top layer UI element with opacity = 0 
+
+```css
+pointer-events: none;
+```
+
+### hide scrollbar on hover
+[source](https://iqcode.com/code/css/hover-show-scrollbar-css#:~:text=hover%20show%20scrollbar%20css%20CPP%20div%20%7B%20height%3A,overflow%3A%20hidden%3B%20%7D%20div%3Ahover%20%7B%20overflow-y%3A%20scroll%3B%20%7D)
+```css
+div {
+  height: 100px;
+  width: 50%;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+div:hover {
+  overflow-y: scroll;
+}
+```
+
 ### Fix word wrap indentation in list elements
 [CSS - Indenting the second line of LI (List Items) - Silva Web Designs](https://silvawebdesigns.com/css-indenting-second-line-li-list-items/)
 ```css

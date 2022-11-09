@@ -1,4 +1,6 @@
-## [Duck DNS (www.duckdns.org)](www.duckdns.org))
+[Duck DNS (www.duckdns.org)](http://www.duckdns.org/)
+
+> free dynamic DNS hosted on AWS
 
 Dynamic DNS. The benefits of a static IP, without shelling out 💲💲💲 for one. Updates our duckdns domain when our home  server's Public IP changes
 

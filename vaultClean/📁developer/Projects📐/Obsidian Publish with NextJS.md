@@ -1,27 +1,52 @@
-Create a statically generated site with [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md), and pump in my [Obsidian](📁developer/Home%20Lab%20🏠/Obsidian.md) vault as the content. 
+codename: **Obsidian Pywrite**
+
+## Features
+- create a statically generated site with [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md), and pump in my [Obsidian](📁developer/Home%20Lab%20🏠/Obsidian.md) vault as the content. 
 - convert [Markdown](📁developer/Markdown.md) into html via [remarkjs/remark-html](https://github.com/remarkjs/remark-html) or [remarkjs/react-markdown](https://github.com/remarkjs/react-markdown) [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md)
-- rel wiki: [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md)
-- abs wiki: [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md) 
--  shortest wiki: [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md)
 
-
-### syntax highlighting styles
+### syntax highlighting style themes
 [react-syntax-highlighter/AVAILABLE_STYLES_PRISM.MD at master · react-syntax-highlighter/react-syntax-highlighter (github.com)](github.com)))
 
 #todo 
-- [ ] ==BUG== = Headers with same name breaks **Table of Contents** (i.e. Dark Room White Tunnel.md)
-	- [ ] if headername exists? increment a key number onto next one
-- [ ] ==BUG== = External links get app route appened to it
-	- [ ] if start of link starts with "http" do not clean
-- [ ] ==style== : table style
-- [ ] ==style== : keep middle column static width
-- [ ] ==style== : checkboxes also show list 
-- [ ] ==style== : convert and style all callout quotes
+- [x] ==BUG== = Headers with same name breaks **Table of Contents** (i.e. Dark Room White Tunnel.md)
+	- [x] if headername exists? increment a key number onto next one. Can fix with Math.Random() but Should force user to make unique header names
+- [x] ==BUG== -> on build, `Table of Contents` does not update when parent `[..slug].jsx` changes
+- [x] ==BUG== -> `tableofcontents.jsx` incorrectly nests some headers (i believe it's when lilttle content is below a header)
+- [x] ==BUG== = External links get app route appended to it
+	- [x] if start of link starts with "http" do not clean
+- [ ] ==feature== Fuse.js bold found search matches  in excerpt searchQuery - [Fuse.js with highlight (github.com)](https://gist.github.com/evenfrost/1ba123656ded32fb7a0cd4651efd4db0)
+- [x] ==style== : table style
+- [x] ==style== : keep middle column static width
+- [x] ==style== : checkboxes also show list 
+- [x] ==style== : convert and style all callout quotes
+	- [x] fix "not array null" by skipping if not array
 - [ ] ==style== : mask on top above header bg color so it looks like rocky yellow rocks coming out of bottom border
-- [ ] ==feature== - clickable slug breadcrumbs for easy backwards navigation
-- [ ] ==feature== - searchable field, use [typesense](https://www.youtube.com/watch?v=cIU19iA8I7U)
-- [ ] ==feature== - graph view with [Cytoscape.js tutorial demo](https://cytoscape.org/cytoscape.js-tutorial-demo/)
+- [x] ==style== : fade out scrollbar after time. reveal  while scrolling or hover
+- [ ] ==style== : cross out on checked boxes `task-list-item` 
+- [x] ==feature== - clickable slug breadcrumbs for easy backwards navigation
+- [x] ==feature== - searchable field, use Fuse.js
 - [ ] ==feature== - mermaid integration
+- [ ] ==feature== - callouts collapsible
+- [ ] ==feature== - callouts single line no content 
+- [ ] ==feature== - copy all contents in codeblock single click
+- [ ] ==feature== make tags clickable links
+- [ ] ==feature== graph
+	- [x] strait from Obsidian.md dev "We use `d3-force` for force simulation, and `PixiJS` for actually rendering the graph."
+	- [x]  tech that native Obsidian.md uses [Network Graph | D3js](https://d3-graph-gallery.com/network.html)
+	- [x] tech that Mind Stone uses [Cytoscape.js](https://cytoscape.org/cytoscape.js-tutorial-demo/) 
+	- [x] display nodes routes to internal links
+	- [x] clickable nodes take to page
+	- [x] hover, highlight friend nodes too
+	- [x] zoom pan canvas 
+	- [ ] full screen graph
+	- [ ] try building with Pixi.js
+- [x] ==feature== site search
+	- [x] zola uses - elastilunr.js
+	- [x] could use typesense, but need to run separate server
+	- [x] [Fuse.js](https://fusejs.io/) [video tut]([How to Add Search to a React App with Fuse.js - YouTube](https://www.youtube.com/watch?v=GZl-yEz4_qw))
+- [ ] home page
+	- [ ] recently added notes carousel
+	- [ ] ==style== front page with growing sprout garden. flowers are clickable graph view?
 - [x] folders have their own page that shows all internal link structure
 	- [ ] make it obvious what's a folder and what's a file
 - [x] Covert **Markdown** to show in NextJS
@@ -42,7 +67,7 @@ Create a statically generated site with [NextJS](📁developer/Home%20Lab%20🏠
 	- [x] only sanatize inside `( ... )` using regex
 	- [x] add `/vault/` in front of every link to make it absolute for NextJS routing
 - [ ] automate menu nav to match ./pages directory 
-- [ ] ==create `aside` with page heading shortcuts==
+- [x] ==create `aside` with page heading shortcuts==
 	- [x] gather all heading tags after hydration (use `isLoading` for react-markdown)
 	- [x] build out  smooth scrolling sticky `aside` list 
 	- [x] link that connects current route `/vault/MarkdownPage` with `#TheHeading`\
@@ -52,27 +77,20 @@ Create a statically generated site with [NextJS](📁developer/Home%20Lab%20🏠
 - [ ] use **chokedar** to watch and update app's vault 
 - [x] pretty up any **slug** (exp: change 'space' to underscore, '&' to 'and', etc) (possibly do this after file has been found, then pretty the URL for user. sounds dangerous tho)
 - [x] emoji's work in URL thank god
-- [](https://ahmadawais.com/next-js-absolute-imports-aliases/#:~:text=Next.js%20Absolute%20Imports%20%2523%20Basically%20you%20only%20need,via%20jsconfig.json%20(JS%20projects)%20or%20tsconfig.json%20(TS%20projects).)
-- [ ] search bar with autocomplete 
-- [ ] shortcut `/` that focus search bar
+- [x] shortcut `/` that focus search bar
 - [ ] delete / remove files folders when not building from scratch
 - [x] drop a `index.jsx` in root of any `./vault` directory with a spread of links to child files
 - [ ] create a loading animation
 - [x] can i fix dynamic routing with `./pages/[...folder]/[...slug]`? - NO, CATCH ALLs CAN ONLY BE AT END
-- [ ] make tags clickable links
 - [ ] does grabbing images work?
 - [x] fix list indentation when words wrap in Table of Contents
-- [ ] home page
-	- [ ] recently added notes carousel
+- [x] pretty css on tables
 - [x] show language used in codeblock
-- [ ] one click copy code block or snippet
 - [x] do i need to even remove '.md' for NextJS routing? yeah i can leave on .md
 - [ ] tags
 	- [ ] [[Solved] Regex to find words that start with a specific | 9to5Answer](https://9to5answer.com/regex-to-find-words-that-start-with-a-specific-character)
 	- [ ] strip tags out of .md
-	- [ ] put them in <a> tags in the sidebar
-- [ ] wide codeblocks take up large space. shrink down whole page or max-width codeblock 
-
+	- [ ] put them in <a> tags in the sidebar 
 
 ## Other Tutorials 
 - copy folders / files with node - [stackoverflow](https://stackoverflow.com/a/64255382/15579591)
@@ -93,9 +111,3 @@ Create a statically generated site with [NextJS](📁developer/Home%20Lab%20🏠
 
 ## Setup for new users
 1. don't forget this file. sometimes it doesn't copy over -> `./pages/vault/[slug].jsx`
-
-## just messin
-[Nginx Proxy Manager](📁developer/Home%20Lab%20🏠/Nginx%20Proxy%20Manager.md)
-[2022.10.28 Teresa & Thomas](%F0%9F%93%81music/DJ_William%F0%9F%8E%9B/2022.10.28%20Teresa%20&%20Thomas.md)
-
-## wikilinks

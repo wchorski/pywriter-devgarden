@@ -39,6 +39,7 @@ export function buildVaultTree(src) {
           parentDir: src, 
           parentLink: parentPath.join('/'), 
           link: entryPath.join('/'),
+          excerpt: "folder 📁"
         }
 
 
@@ -48,26 +49,38 @@ export function buildVaultTree(src) {
       } else if(fs.existsSync(srcPath) && fs.lstatSync(srcPath).isFile()) {
         
         const splitPath = (Os.platform() === 'win32') ? srcPath.split('\\') : srcPath.split('/')
-        splitPath.shift(); splitPath.shift(); splitPath.unshift('/vault') //? remove '..' & 'vaultOriginal'   |   add 'vault'
-        const entryPath = splitPath.slice()
-        splitPath.pop() //? remove last array item (the current file || dir)
-        const parentPath = splitPath
-        
+        const linkPath = splitPath.slice()
+        linkPath.shift(); linkPath.shift(); linkPath.unshift('/vault') //? remove '..' & 'vaultOriginal'   |   add 'vault'
+        const currLinkPath = linkPath.slice()
+        linkPath.pop() //? remove last array item (the current file || dir)
+        const parentPath = linkPath
+
+        const excerpt = fs.readFileSync(splitPath.join('/'), 'utf8')
 
         const currFile = {
           name: entry.name,
           isDir: false,
           parentDir: src, 
           parentLink: parentPath.join('/'), 
-          link: entryPath.join('/'),
+          link: currLinkPath.join('/'),
+          internalLinks: findInternalLinks(excerpt),
+          excerpt: cleanSearchExcerpt(excerpt),
           children: null
         }
+        // TODO turn this back on for debugging
+        // console.log('currFile, ', currFile.link);
 
         vaultTree.push(currFile)
       }
     });
 
     // console.log('vaultTree: ', vaultTree);
+    const jsonString = JSON.stringify(vaultTree)
+    fs.writeFileSync('../public/vaultTreeFlat.json', jsonString, 'utf8', function (err) {
+      if (err) return console.warn("An error occured while writing vaultTreeFlat.json Object to File. ", err);
+   
+      console.log("vaultTreeFlat.json file has been saved.");
+    })
     return vaultTree
 
   } catch(err) {
@@ -76,6 +89,43 @@ export function buildVaultTree(src) {
     console.warn('*** END');
   } 
         
+}
+
+function cleanSearchExcerpt(excerpt){
+  const cleanedExcerpt = excerpt.replaceAll('*', '')
+                                .replaceAll('>', '')
+                                .replaceAll('#', '')
+                                .replaceAll('=', '')
+                                // TODO do i need to use the U flag?
+                                .replaceAll(/(?<=\]\().*(?=\))/g, '')
+                                .replaceAll('[', '')
+                                .replaceAll(']', '')
+                                .replaceAll('(', '')
+                                .replaceAll(')', '')
+                                .replaceAll('`', '')
+                                .replaceAll('|', '')
+                                .replaceAll('-', '')
+
+  return cleanedExcerpt
+}
+
+function findInternalLinks(content){
+  const regex = /(?<=\]\().*(?=\))/g
+  const linksArray = content.match(regex)
+
+  if(linksArray){
+    const internalLinks = linksArray.map(link => {
+      if(link.match(/http/)) return null;
+    
+      // console.log('link: ', link)
+      return '/vault/' + link
+    })
+    // console.log('internalLinks: ', internalLinks);
+    return internalLinks
+
+  } else {
+    return null
+  }
 }
 
 export function unFlatten(data){
@@ -113,80 +163,9 @@ export function unFlatten(data){
   // const jsonString = JSON.stringify(tree)
 
   fs.writeFileSync('../public/vaultTree.json', jsonString, 'utf8', function (err) {
-    if (err) {
-        console.log("An error occured while writing JSON Object to File.");
-        return console.log(err);
-    }
+
+    if (err) return console.warn("An error occured while writing vaultTree.json Object to File. ", err);
  
-    console.log("JSON file has been saved.");
+    console.log("vaultTree.json file has been saved.");
   })
 }
-
-
-// build something like
-
-// const vaultTree = {
-//   name: "Root",
-//   isFolder: true,
-//   items: [
-//     {
-//       name: "public",
-//       isFolder: true,
-//       items: [
-//         {
-//           name: "Data",
-//           isFolder: true,
-//           items: [
-//             {
-//               name: "folderData.js",
-//               isFolder: false,
-//               items: []
-//             }
-//           ]
-//         },
-//         {
-//           name: "index.html",
-//           isFolder: false,
-//           items: []
-//         }
-//       ]
-//     },
-//     {
-//       name: "src",
-//       isFolder: true,
-//       items: [
-//         {
-//           name: "components",
-//           isFolder: true,
-//           items: [
-//             {
-//               name: "Folder.js",
-//               isFolder: false,
-//               items: []
-//             }
-//           ]
-//         },
-//         {
-//           name: "App.js",
-//           isFolder: false,
-//           items: []
-//         },
-//         {
-//           name: "index.js",
-//           isFolder: false,
-//           items: []
-//         },
-//         {
-//           name: "styles.css",
-//           isFolder: false,
-//           items: []
-//         }
-//       ]
-//     },
-//     {
-//       name: "package.json",
-//       isFolder: false,
-//       items: []
-//     }
-//   ]
-// };

@@ -1,16 +1,21 @@
 #pictures #selfhosted
-# [PhotoPrism](https://photoprism.app/)
-Browse Your Life in Pictures
 
-An open source, self hosted solution for services like [iCloud](https://www.icloud.com/) | [Google Photos](https://photos.google.com/). don't be afraid of the `compose.yml`. You'll only need to change a few things like `<username>`, `<passwordForAppLogin>`, `<strongpassword>` 
+> [!quote] [PhotoPrism](https://photoprism.app/)
+>  Browse Your Life in Pictures
+
+An open source, self hosted solution for services like [iCloud](https://www.icloud.com/) | [Google Photos](https://photos.google.com/). don't be afraid of the `compose.yml`. You'll only need to change 
+- `<username>`, 
+- `<passwordForAppLogin>`, 
+- `<strongpassword>`, 
+- `PHOTOPRISM_SITE_URL`  -> the local IP will be fine, as I use a reverse proxy to point app outward
+- `<localStorage>` -> I grab photos from Nextcloud, but you can point the volume to whatever local storage
 
 ## connections
 
 
-## installation
-### [Docker](📁developer/Home%20Lab%20🏠/Docker.md) build 
-1. `compose.yml`
-```
+## installation 
+1. `compose.yml` via [Docker](📁developer/Home%20Lab%20🏠/Docker.md)
+```yml
 version: '3.5'
 
 
@@ -81,14 +86,14 @@ version: '3.5'
     working_dir: "/photoprism"
     volumes:
       ## The *originals* folder contains your original photo and video files (- "[host folder]:/photoprism/originals"):
-      - "/mnt/uasis5/nextcloud/data/iMomma/files/pictures:/photoprism/originals"
+      - "/mnt/uasis5/nextcloud/data/<localStorage>/files/pictures:/photoprism/originals"
       ## Multiple folders can be made accessible by mounting them as subfolders of /photoprism/originals:
       # - "/mnt/Family:/photoprism/originals/Family"    # [folder 1]:/photoprism/originals/[folder 1]
       # - "/mnt/Friends:/photoprism/originals/Friends"  # [folder 2]:/photoprism/originals/[folder 2]
       ## You may mount an *import* folder from which files can be transferred to *originals* (optional):
       # - "~/Import:/photoprism/import"
       ## Cache, session, thumbnail, and sidecar files will be created in the *storage* folder (never remove):
-      - "/mnt/uasis5/nextcloud/data/iMomma/files/.photoprism/storage:/photoprism/storage"
+      - "/mnt/uasis5/nextcloud/data/<localStorage>/files/.photoprism/storage:/photoprism/storage"
 ## Database Server (recommended)
   ## see https://docs.photoprism.org/getting-started/faq/#should-i-use-sqlite-mariadb-or-mysql
   mariadb:

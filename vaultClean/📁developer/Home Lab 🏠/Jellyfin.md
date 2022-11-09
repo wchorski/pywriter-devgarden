@@ -1,7 +1,8 @@
 #music #media #player #itunes #bash #powershell
 
-## [Jellyfin](https://jellyfin.org/)
-The Free Software Media System.
+![banner-dark (jellyfin.org)](https://jellyfin.org/images/logo.svg) 
+> [!quote] [Jellyfin](https://jellyfin.org/) The Free Software Media System.
+> Jellyfin is the volunteer-built media solution that puts _you_ in control of your media. Stream to any device from your own server, with no strings attached. Your media, your server, your way.
 
 I use this exclusively for music hosting because [Plex.tv](📁developer/Home%20Lab%20🏠/Plex.tv.md) has more restrictions on client music playback. Plus, with a little shell magic -> [iTunes playlist Sync](#iTunes%20playlist%20Sync)
 

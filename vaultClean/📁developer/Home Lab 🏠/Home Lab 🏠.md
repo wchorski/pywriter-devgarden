@@ -122,11 +122,11 @@ router <-- fiber 400mbps --> internet
 
 [Obsidian Publish with NextJS](📁developer/Projects📐/Obsidian%20Publish%20with%20NextJS.md)
 [Nginx Proxy Manager](📁developer/Home%20Lab%20🏠/Nginx%20Proxy%20Manager.md)
-[Melt & Murder](%F0%9F%93%81music/split_skream/Melt%20&%20Murder.md)
+[Melt & Murder](📁music/Split%20Skream/Melt%20&%20Murder.md)
 
 ## wiki links 
 [NextJS](📁developer/Home%20Lab%20🏠/NextJS.md) 
 
 [Obsidian Publish with NextJS](📁developer/Projects📐/Obsidian%20Publish%20with%20NextJS.md)
-[In Flavor](🚿shower_thoughts/In%20Flavor.md)  
+[In Flavor](myVault/%F0%9F%9A%BFshower_thoughts/In%20Flavor.md)  
 [Home Lab 🏠](📁developer/Home%20Lab%20🏠/Home%20Lab%20🏠.md)

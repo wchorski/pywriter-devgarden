@@ -10,7 +10,7 @@ I've dabbled in blogging / tutorial making, but was always bogged down with the 
 - extensibility of an [IDE](https://social.technet.microsoft.com/wiki/contents/articles/29057.the-small-basic-environment-ide.aspx),  
 - simplicity that [Markdown](https://daringfireball.net/projects/markdown/) offers. 
 
-Plus I can use it for client tracking, tutorial making, and idea generation. I'd recommend anybody that knows more than 5 keyboard shortcuts to ditch whatever blogging tool they currently use [In Flavor](🚿shower_thoughts/In%20Flavor.md) of **Obsidian**
+Plus I can use it for client tracking, tutorial making, and idea generation. I'd recommend anybody that knows more than 5 keyboard shortcuts to ditch whatever blogging tool they currently use [In Flavor](🚿%20shower%20thoughts/In%20Flavor.md) of **Obsidian**
 
 ---
 ### connections

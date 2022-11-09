@@ -23,19 +23,19 @@ DNS  - **mint.lan** *-via [Pi-hole](📁developer/Home%20Lab%20🏠/Pi-hole.md)*
             '-MMMMMMMMMMMMM-'
 ```
 
-| part         | brand          | model                            | price |     |
-| ------------ | -------------- | -------------------------------- | ----- | --- |
-| OS           | Linux Mint     | 20.3 x86_64                      |       |     |
-| CPU          | AMD RYZEN      | 9 3900X 12 Core                  |       |     |
-| Motherboard  | Gigabyte Aorus | elite wifi mobo x570             |       |     |
-| RAM          | G Skill        | 32 gb trident z ram DDR4 3200mhz |       |     |
-| GPU          | NVIDIA GeForce | GTX 1060 3GB                     |       |     |
-| Cooler       |                |                                  |       |     |
-| Storage main |                | NVMe ?gb                         |       |     |
-| Storage Ext  | Samsung        | 2.5mm SSD  ?gb                   |       |     |
-| Storage Ext  |                | HDD 8tb                          |       |     |
-| PSU          |                | 750 W                            |       |     |
-| Case         |                |                                  |       |     |
+| part         | brand              | model                            | price |     |
+| ------------ | ------------------ | -------------------------------- | ----- | --- |
+| OS           | Linux Mint         | 20.3 x86_64                      |       |     |
+| CPU          | AMD RYZEN          | 9 3900X 12 Core                  |       |     |
+| Motherboard  | Gigabyte Aorus     | elite wifi mobo x570             |       |     |
+| RAM          | G Skill            | 32 gb trident z ram DDR4 3200mhz |       |     |
+| GPU          | NVIDIA GeForce     | GTX 1060 3GB                     |       |     |
+| Cooler       | Some Wraith Cooler |                                  |       |     |
+| Storage main |                    | NVMe ?gb                         |       |     |
+| Storage Ext  | Samsung            | 2.5mm SSD  ?gb                   |       |     |
+| Storage Ext  |                    | HDD 8tb                          |       |     |
+| PSU          |                    | 750 W                            |       |     |
+| Case         |                    |                                  |       |     |
 
 
 #todo 
@@ -50,6 +50,7 @@ I also use this as my emulation gaming rig
 - [RPCS3 - The PlayStation 3 Emulator](https://rpcs3.net/)
 - Playstation 2 & 1
 - [redream - Dreamcast Emulator](https://redream.io/)
+- Wii U [Releases · cemu-project/Cemu (github.com)](https://github.com/cemu-project/Cemu/releases/)
 
 ### Crypto Mining
 I also mine [Monero](https://www.getmonero.org/) on this machine with [XMRig](📁developer/Home%20Lab%20🏠/XMRig.md) 

@@ -8,7 +8,7 @@ import matter from "gray-matter";
 
 import ReactMarkdown from 'react-markdown'
 const wikiLinkPlugin = require('remark-wiki-link');
-import directive from "remark-directive";
+// import directive from "remark-directive";
 
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkGfm from 'remark-gfm'
@@ -21,10 +21,14 @@ import { TbMarkdown } from "react-icons/tb";
 import { useState, useEffect } from "react"; 
 import { Layout_Markdown } from "components/Layouts";
 import { TableOfContents } from 'components/TableOfContents';
+// import { SearchFuse } from 'components/SearchFuse';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
 import {oneDark as syntaxStyle} from 'react-syntax-highlighter/dist/cjs/styles/prism' //? use cjs instead of esm modules
-import { StyledMarkdownContent } from '../../styles/MarkdownContent.styled';
-import { BreadCrumb } from '../../components/BreadCrumb';
+import { StyledMarkdownContent } from 'styles/MarkdownContent.styled';
+import { BreadCrumb } from 'components/BreadCrumb';
+import { CalloutBlockQuote } from 'components/CalloutBlockQuote';
+import { MarkdownLink } from 'components/MarkdownLink';
+import { GraphD3 } from 'components/GraphD3';
 
 const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
   // console.log('*** Slug: ', slug);
@@ -55,37 +59,40 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
       // </a>
       <>{children}</>
     );
+
   
     // TODO check for headers with same string and incriment anchor
     switch (level) {
       case 1:
-        return <h1 id={`${anchor}`}>{container(children)}</h1>;
+        return <h1 id={`${anchor}`}> {container(children)} </h1>;
       case 2:
-        return <h2 id={`${anchor}`}>{container(children)}</h2>;
+        return <h2 id={`${anchor}`}> {container(children)} </h2>;
       case 3:
-        return <h3 id={`${anchor}`}>{container(children)}</h3>;
+        return <h3 id={`${anchor}`}> {container(children)} </h3>;
+      case 4:
+        return <h4 id={`${anchor}`}> {container(children)} </h4>;
+      case 5:
+        return <h5 id={`${anchor}`}> {container(children)} </h5>;
   
       default:
-        return <h6 id={`${anchor}`}>{container(children)}</h6>;
+        return <h6 id={`${anchor}`}> {container(children)} </h6>;
     }
   };
 
   const LinkRenderer = ({href, children}) => {
+    // eslint-disable-next-line react/no-children-prop
+    return <MarkdownLink href={href} children={children}/>
+  }
 
-    // console.log(href);
-    if(!children) return <strike>broken link</strike>
-
-    const trueLink = ((/^http/).test(href))
-      ? href
-      : '/vault/' + href 
-
-    return  <a href={trueLink}>{children[0]}</a>
+  const BlockQuoteRenderer = ({children}) => {
+    // eslint-disable-next-line react/no-children-prop
+    return <CalloutBlockQuote children={children} />
   }
   
 
   const components = {
-    // TODO add something for quote block Callouts
     a: LinkRenderer,
+    blockquote: BlockQuoteRenderer,
     h2: HeadingRenderer,
     h3: HeadingRenderer,
     h4: HeadingRenderer,
@@ -177,9 +184,11 @@ const Post = ( {slug, frontmatter, fileTitle, markdown, folderChildren} ) => {
             </div>
 
             <aside >
-              {!isLoading && (
+              {!isLoading && (<>
                 <TableOfContents key={slug}/>
-              )}
+
+                <GraphD3 />
+                </>)}
               {isLoading && (
                 <p>LOADING...</p>
               )}

@@ -168,6 +168,21 @@ export default Test;
 
 ---
 ## Trials & Tribulations
+
+### ESLint Error
+> [!error] error - ESLint: Error while loading rule '@next/next/no-html-link-for-pages': Invalid regular expression: /^/testingchar/(/$/: Unterminated group Occurred while linting /vercel/path0/pages/_app.tsx
+
+[source](https://stackoverflow.com/a/64664131/15579591)
+add to `.eslint.json`. Assuming `tsconfig.json` is also in the root directory
+```json
+{
+    "parserOptions": {
+        "project": ["tsconfig.json"]
+    },
+}
+```
+
+### modual not found
 > [!error] Module Not Found Can’t Resolve ‘fs’ in Next.js
 > you'll find yourself commenting / uncommenting lines while troubleshooting. 
 > 
